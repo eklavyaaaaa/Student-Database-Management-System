@@ -1,0 +1,499 @@
+--students with birthyear 2006se
+select count(*)
+from  students
+where `Birth year`='2006';
+
+--Birth date of a student in Section C, taking commerce, named Bella
+SELECT  Dateofbirth
+FROM students
+WHERE Section = 'C' AND Subject = 'commerce' AND Firstname = 'Bella';
+
+
+
+--Number of students in Section A and display their names
+SELECT 'Section A' AS Section, COUNT(*) AS num_students, FirstName
+FROM students
+WHERE section = 'A'
+GROUP BY FirstName;
+
+
+--Number of students in Section B and display their names
+SELECT 'section B' AS Section, COUNT(*) AS num_students, FirstName
+FROM students
+WHERE section = 'B'
+GROUP BY FirstName;
+
+
+--Number of students in Section C and display their names
+SELECT 'section C' AS Section, COUNT(*) AS num_students, FirstName
+FROM students
+WHERE section = 'C'
+GROUP BY FirstName;
+
+-- Students in Section A with age above 17
+SELECT 'Section A' AS Section,COUNT(*) AS num_students, FirstName 
+FROM students
+WHERE Section = 'A' AND Age > '17'
+GROUP BY FirstName;
+
+
+-- Students whose birth date is between May and November
+SELECT COUNT(*) AS num_students,FirstName
+FROM students
+WHERE CAST(SUBSTR(Dateofbirth, 1, 2) AS INTEGER) BETWEEN 5 AND 11
+GROUP BY FirstName;
+
+--Most common place from where students come
+SELECT Address, COUNT(*) AS num_students
+FROM students
+GROUP BY Address
+ORDER BY num_students
+LIMIT 1;
+
+
+OUTPUTS - 
+
+
+103
+12/14/06
+Section A|1|Alexander
+Section A|1|Alice
+Section A|1|Audrey
+Section A|1|Bella
+Section A|1|Benjamin
+Section A|1|Bonnie
+Section A|1|Brandon
+Section A|1|Brian
+Section A|1|Brooke
+Section A|1|Daphne
+Section A|1|David
+Section A|1|Dominic
+Section A|1|Elijah
+Section A|1|Eliza
+Section A|1|Ethan
+Section A|1|Evan
+Section A|1|Eve
+Section A|1|Gabriel
+Section A|1|Giselle
+Section A|1|Grace
+Section A|1|Hannah
+Section A|1|Harper
+Section A|1|Harrison
+Section A|1|Hazel
+Section A|1|Isabella
+Section A|1|Jack
+Section A|1|Jacob
+Section A|1|Jasmine
+Section A|1|Kenneth
+Section A|1|Kevin
+Section A|2|Kyle
+Section A|1|Lucy
+Section A|1|Madeline
+Section A|1|Maria
+Section A|1|Mia
+Section A|1|Molly
+Section A|1|Natalie
+Section A|1|Natasha
+Section A|1|Nicholas
+Section A|1|Nolan
+Section A|1|Olivia
+Section A|1|Patrick
+Section A|1|Peter
+Section A|1|Quentin
+Section A|1|Quincy
+Section A|1|Rebecca
+Section A|1|Ryan
+Section A|1|Sam
+Section A|1|Samuel
+Section A|1|Savannah
+Section A|1|Stella
+Section A|1|Tabitha
+Section A|1|Thomas
+Section A|1|Tiffany
+Section A|1|Tristan
+Section A|1|Vanessa
+Section A|1|Veronica
+Section A|1|Wesley
+Section A|1|Whitney
+Section A|1|William
+Section A|1|Winnie
+Section A|1|Wyatt
+Section A|1|Xavier
+Section A|1|Yannick
+Section A|1|Yvonne
+Section A|1|Zoey
+section B|1|Adam
+section B|1|Alexis
+section B|1|Alice
+section B|1|Allen
+section B|1|Bob
+section B|1|Cameron
+section B|1|Carter
+section B|1|Chloe
+section B|1|Claire
+section B|1|Connor
+section B|1|Daniel
+section B|1|Derek
+section B|1|Diana
+section B|1|Emma
+section B|1|Erin
+section B|1|Finn
+section B|2|Fiona
+section B|1|Gabriella
+section B|1|Gary
+section B|1|Gavin
+section B|1|Henry
+section B|3|Isaac
+section B|1|Ivy
+section B|1|Jason
+section B|1|Josephine
+section B|1|Julian
+section B|1|Kate
+section B|1|Kimberly
+section B|1|Laura
+section B|1|Leah
+section B|1|Lily
+section B|1|Marcus
+section B|1|Mitchell
+section B|1|Naomi
+section B|1|Nicole
+section B|1|Noah
+section B|1|Oscar
+section B|2|Owen
+section B|1|Patrick
+section B|1|Philip
+section B|2|Quinn
+section B|1|Rachel
+section B|1|Ruby
+section B|1|Sarah
+section B|1|Scott
+section B|1|Silas
+section B|1|Summer
+section B|1|Tamara
+section B|1|Taylor
+section B|1|Trevor
+section B|1|Valerie
+section B|1|Vanessa
+section B|1|Victor
+section B|1|Vincent
+section B|1|Walter
+section B|1|Whitney
+section B|1|Wyatt
+section B|2|Zachary
+section B|2|Zoe
+section B|1|Zoey
+section C|1|Aaron
+section C|1|Abigail
+section C|1|Amber
+section C|1|Andrew
+section C|1|Bella
+section C|1|Brayden
+section C|1|Calvin
+section C|1|Carol
+section C|1|Cassidy
+section C|1|Christopher
+section C|1|Daisy
+section C|1|Daniel
+section C|1|Delilah
+section C|1|Elena
+section C|1|Elliot
+section C|1|Faith
+section C|1|Felix
+section C|1|Francesca
+section C|1|Frank
+section C|1|Gabriel
+section C|1|George
+section C|1|Hannah
+section C|1|Harrison
+section C|1|Ian
+section C|1|Isla
+section C|1|Ivy
+section C|1|Jasmine
+section C|1|Julia
+section C|1|Juliette
+section C|1|Kiara
+section C|2|Leo
+section C|1|Liam
+section C|1|Luke
+section C|1|Mason
+section C|1|Maya
+section C|1|Naomi
+section C|1|Nathan
+section C|1|Nora
+section C|1|Oliver
+section C|1|Olivia
+section C|1|Oscar
+section C|1|Penelope
+section C|1|Peyton
+section C|1|Phoebe
+section C|1|Raymond
+section C|1|Rose
+section C|1|Ross
+section C|1|Sadie
+section C|1|Simon
+section C|1|Sophia
+section C|1|Thea
+section C|1|Thomas
+section C|1|Timothy
+section C|1|Uma
+section C|1|Uriel
+section C|1|Victor
+section C|1|Victoria
+section C|1|Violet
+section C|1|Vivian
+section C|1|Willow
+section C|1|Wren
+section C|1|Xander
+section C|1|Xavier
+section C|1|Zachary
+section C|1|Zane
+Section A|1|Audrey
+Section A|1|Bella
+Section A|1|Benjamin
+Section A|1|Bonnie
+Section A|1|Brandon
+Section A|1|Brian
+Section A|1|Daphne
+Section A|1|Eliza
+Section A|1|Gabriel
+Section A|1|Hannah
+Section A|1|Harper
+Section A|1|Isabella
+Section A|1|Jacob
+Section A|1|Jasmine
+Section A|1|Kenneth
+Section A|1|Kevin
+Section A|1|Kyle
+Section A|1|Madeline
+Section A|1|Mia
+Section A|1|Natasha
+Section A|1|Nolan
+Section A|1|Patrick
+Section A|1|Peter
+Section A|1|Quentin
+Section A|1|Quincy
+Section A|1|Ryan
+Section A|1|Savannah
+Section A|1|Thomas
+Section A|1|Veronica
+Section A|1|Wesley
+Section A|1|William
+Section A|1|Winnie
+Section A|1|Wyatt
+Section A|1|Xavier
+Section A|1|Zoey
+1|Abigail
+1|Alexander
+1|Allen
+1|Andrew
+1|Audrey
+1|Bob
+1|Bonnie
+1|Brayden
+1|Brooke
+1|Calvin
+1|Cameron
+1|Carol
+1|Cassidy
+1|Christopher
+1|Claire
+1|Connor
+2|Daniel
+1|Daphne
+1|David
+1|Derek
+1|Elijah
+1|Eliza
+1|Emma
+1|Erin
+1|Ethan
+1|Evan
+1|Eve
+2|Fiona
+1|Francesca
+1|Frank
+1|Gabriella
+1|Gary
+1|Gavin
+1|George
+1|Hannah
+1|Harrison
+1|Hazel
+1|Henry
+1|Ian
+1|Isaac
+1|Isabella
+2|Ivy
+1|Jasmine
+1|Jason
+1|Josephine
+1|Julia
+1|Kate
+1|Kiara
+1|Kimberly
+2|Kyle
+1|Laura
+1|Leah
+2|Leo
+1|Lucy
+1|Madeline
+1|Marcus
+1|Maria
+1|Mason
+1|Maya
+1|Naomi
+1|Natalie
+1|Natasha
+1|Noah
+1|Oliver
+1|Olivia
+1|Oscar
+1|Owen
+2|Patrick
+1|Penelope
+1|Peter
+1|Philip
+1|Phoebe
+1|Quentin
+1|Quincy
+2|Quinn
+1|Rachel
+1|Rose
+1|Ross
+1|Ruby
+1|Ryan
+1|Sam
+1|Samuel
+1|Sarah
+1|Simon
+1|Stella
+1|Summer
+1|Tabitha
+1|Tamara
+1|Thomas
+1|Tiffany
+1|Trevor
+1|Uma
+1|Uriel
+1|Valerie
+1|Vanessa
+2|Victor
+1|Victoria
+1|Walter
+1|Wesley
+1|Whitney
+1|William
+1|Willow
+1|Wren
+1|Wyatt
+1|Xander
+1|Xavier
+2|Zachary
+1|Zane
+1|Zoe
+2|Zoey
+Brigade Road, Indiranagar, Bangalore, Karnataka, India - 560013|1
+
+
+
+
+--Update mobile number of Jasmine
+UPDATE students
+SET ContactNumber = '7251824644'
+WHERE FirstName = 'Jasmine';
+
+select* from students
+where FirstName = 'Jasmine';
+
+--Replace email addresses from @example.com to @rediffmail.com
+UPDATE students
+SET Email =  '@rediffmail.com';
+
+select* from students
+
+
+output - 
+
+57|Jasmine|Morgan|10/18/07|2007|7251824644|jasmine@example.com|Main Street, Koramangala, Bangalore, Karnataka, India - 560093|commerce|12th|C|17|
+169|Jasmine|Matthews|3/18/06|2006|7251824644|jasmine@example.com|Main Street, Indiranagar, Bangalore, Karnataka, India - 560005|pcm|12th|A|18|
+1|Alice|mith|12/23/07|2007|1234567890|@rediffmail.com|MG Road, Whitefield, Bangalore, Karnataka, India - 560055|pcm|12th|A|17|
+2|Bob|Johnson|7/8/06|2006|2345678901|@rediffmail.com|MG Road, Whitefield, Bangalore, Karnataka, India - 560083|pcb|12th|B|18|
+3|Carol|Williams|6/23/06|2006|3456789012|@rediffmail.com|Main Street, JP Nagar, Bangalore, Karnataka, India - 560047|commerce|12th|C|18|
+4|David|Jones|11/28/07|2007|4567890123|@rediffmail.com|Brigade Road, Koramangala, Bangalore, Karnataka, India - 560053|pcm|12th|A|17|
+5|Emma|Brown|9/7/06|2006|5678901234|@rediffmail.com|MG Road, JP Nagar, Bangalore, Karnataka, India - 560056|pcb|12th|B|18|
+6|Frank|Davis|11/10/07|2007|6789012345|@rediffmail.com|Park Avenue, Koramangala, Bangalore, Karnataka, India - 560007|commerce|12th|C|17|
+7|Grace|Miller|4/7/07|2007|7890123456|@rediffmail.com|MG Road, Indiranagar, Bangalore, Karnataka, India - 560095|pcm|12th|A|17|
+8|Henry|Wilson|9/22/06|2006|8901234567|@rediffmail.com|Brigade Road, Malleshwaram, Bangalore, Karnataka, India - 560079|pcb|12th|B|18|
+9|Ivy|Moore|8/18/07|2007|9012345678|@rediffmail.com|Main Street, Malleshwaram, Bangalore, Karnataka, India - 560078|commerce|12th|C|17|
+10|Jack|Taylor|1/10/07|2007|1234567891|@rediffmail.com|Silk Board Road, Koramangala, Bangalore, Karnataka, India - 560027|pcm|12th|A|17|
+11|Kate|Anderson|8/6/06|2006|1123456789|@rediffmail.com|MG Road, JP Nagar, Bangalore, Karnataka, India - 560026|pcb|12th|B|18|
+12|Liam|Thomas|12/17/07|2007|2123456789|@rediffmail.com|Brigade Road, JP Nagar, Bangalore, Karnataka, India - 560091|commerce|12th|C|17|
+13|Molly|Jackson|12/7/07|2007|3123456789|@rediffmail.com|Park Avenue, Malleshwaram, Bangalore, Karnataka, India - 560047|pcm|12th|A|17|
+14|Noah|White|11/1/07|2007|4123456789|@rediffmail.com|MG Road, JP Nagar, Bangalore, Karnataka, India - 560028|pcb|12th|B|17|
+15|Olivia|Harris|10/19/07|2007|5123456789|@rediffmail.com|Silk Board Road, Koramangala, Bangalore, Karnataka, India - 560005|commerce|12th|C|17|
+16|Peter|Martin|11/21/06|2006|6123456789|@rediffmail.com|Main Street, Malleshwaram, Bangalore, Karnataka, India - 560010|pcm|12th|A|18|
+17|Quinn|Thompson|10/9/06|2006|7123456789|@rediffmail.com|Park Avenue, Koramangala, Bangalore, Karnataka, India - 560044|pcb|12th|B|18|
+18|Rose|Garcia|5/28/06|2006|8123456789|@rediffmail.com|MG Road, Malleshwaram, Bangalore, Karnataka, India - 560022|commerce|12th|C|18|
+19|Sam|Martinez|9/3/07|2007|9123456789|@rediffmail.com|Brigade Road, Indiranagar, Bangalore, Karnataka, India - 560013|pcm|12th|A|17|
+20|Taylor|Robinson|4/11/07|2007|2234567891|@rediffmail.com|Brigade Road, Koramangala, Bangalore, Karnataka, India - 560048|pcb|12th|B|17|
+21|Violet|Clark|12/31/07|2007|1223456789|@rediffmail.com|Silk Board Road, JP Nagar, Bangalore, Karnataka, India - 560065|commerce|12th|C|17|
+22|William|Rodriguez|11/17/06|2006|2223456789|@rediffmail.com|Silk Board Road, JP Nagar, Bangalore, Karnataka, India - 560034|pcm|12th|A|18|
+23|Zoe|Lewis|11/2/07|2007|3223456789|@rediffmail.com|Main Street, JP Nagar, Bangalore, Karnataka, India - 560027|pcb|12th|B|17|
+24|Aaron|Lee|12/6/07|2007|4223456789|@rediffmail.com|Main Street, Indiranagar, Bangalore, Karnataka, India - 560039|commerce|12th|C|17|
+25|Bella|Walker|3/5/06|2006|5223456789|@rediffmail.com|MG Road, Koramangala, Bangalore, Karnataka, India - 560059|pcm|12th|A|18|
+26|Connor|Hall|8/23/06|2006|6223456789|@rediffmail.com|Main Street, Indiranagar, Bangalore, Karnataka, India - 560079|pcb|12th|B|18|
+27|Daisy|Allen|2/12/07|2007|7223456789|@rediffmail.com|Brigade Road, Malleshwaram, Bangalore, Karnataka, India - 560083|commerce|12th|C|17|
+28|Ethan|Young|7/16/07|2007|8223456789|@rediffmail.com|Brigade Road, Koramangala, Bangalore, Karnataka, India - 560025|pcm|12th|A|17|
+29|Fiona|Hernandez|10/23/06|2006|9223456789|@rediffmail.com|Silk Board Road, Malleshwaram, Bangalore, Karnataka, India - 560021|pcb|12th|B|18|
+30|George|King|8/25/06|2006|3234567891|@rediffmail.com|MG Road, Malleshwaram, Bangalore, Karnataka, India - 560007|commerce|12th|C|18|
+31|Hannah|Wright|4/17/06|2006|1323456789|@rediffmail.com|Main Street, Indiranagar, Bangalore, Karnataka, India - 560035|pcm|12th|A|18|
+32|Isaac|Lopez|6/6/07|2007|2323456789|@rediffmail.com|MG Road, Indiranagar, Bangalore, Karnataka, India - 560065|pcb|12th|B|17|
+33|Julia|Hill|10/5/06|2006|3323456789|@rediffmail.com|Silk Board Road, JP Nagar, Bangalore, Karnataka, India - 560088|commerce|12th|C|18|
+34|Kevin|Scott|3/8/06|2006|4323456789|@rediffmail.com|MG Road, Whitefield, Bangalore, Karnataka, India - 560080|pcm|12th|A|18|
+35|Lily|Green|3/15/06|2006|5323456789|@rediffmail.com|Main Street, JP Nagar, Bangalore, Karnataka, India - 560097|pcb|12th|B|18|
+36|Mason|Adams|6/13/06|2006|6323456789|@rediffmail.com|MG Road, Malleshwaram, Bangalore, Karnataka, India - 560016|commerce|12th|C|18|
+37|Natalie|Baker|11/4/07|2007|7323456789|@rediffmail.com|Silk Board Road, Whitefield, Bangalore, Karnataka, India - 560082|pcm|12th|A|17|
+38|Owen|Gonzalez|12/27/07|2007|8323456789|@rediffmail.com|MG Road, JP Nagar, Bangalore, Karnataka, India - 560032|pcb|12th|B|17|
+39|Penelope|Nelson|7/28/06|2006|9323456789|@rediffmail.com|Brigade Road, Malleshwaram, Bangalore, Karnataka, India - 560004|commerce|12th|C|18|
+40|Ryan|Carter|10/11/06|2006|4234567892|@rediffmail.com|MG Road, Malleshwaram, Bangalore, Karnataka, India - 560057|pcm|12th|A|18|
+41|Sarah|Mitchell|5/6/06|2006|1423456789|@rediffmail.com|Main Street, Koramangala, Bangalore, Karnataka, India - 560061|pcb|12th|B|18|
+42|Thomas|Perez|12/28/06|2006|2423456789|@rediffmail.com|Silk Board Road, Malleshwaram, Bangalore, Karnataka, India - 560054|commerce|12th|C|18|
+43|Vanessa|Roberts|4/10/07|2007|3423456789|@rediffmail.com|Park Avenue, JP Nagar, Bangalore, Karnataka, India - 560072|pcm|12th|A|17|
+44|Wyatt|Turner|9/20/07|2007|4423456789|@rediffmail.com|Main Street, Indiranagar, Bangalore, Karnataka, India - 560035|pcb|12th|B|17|
+45|Xander|Phillips|11/30/06|2006|5423456789|@rediffmail.com|Brigade Road, Whitefield, Bangalore, Karnataka, India - 560085|commerce|12th|C|18|
+46|Yvonne|Campbell|1/22/07|2007|6423456789|@rediffmail.com|Main Street, Indiranagar, Bang
+ JDoodle - output Limit reached.
+
+
+
+
+
+-- Count students in Section B and C with PCB subject, 18 years old
+SELECT COUNT(*) AS num_students
+FROM students
+WHERE (Section = 'B' OR Section = 'C')
+  AND Subject = 'pcb' AND  Age = '18' ;
+  
+  --all the students subject wise
+SELECT Subject, COUNT(*) AS num_students
+FROM Students
+GROUP BY Subject;
+
+-- all the students subject wise whose age is greater than 17
+SELECT Subject ,COUNT(*) AS num_students
+FROM Students
+WHERE Age>17
+GROUP BY Subject;
+ 
+
+
+outputs - 
+
+39
+commerce|66
+pcb|67
+pcm|67
+commerce|29
+pcb|39
+pcm|35
+ 
